@@ -17,6 +17,7 @@ void draw(){
   axies();
   if(startX>=135 && startX<=260 && startY>500){
    createBrokenHouse();
+   mousePressed();
   }
   else{
    createHouse(); 
