@@ -12,6 +12,7 @@ background(0);
 
 void draw(){
  background(0);
+
    
  // if(mPress == true){
     createLightning();
@@ -20,8 +21,8 @@ void draw(){
   // mPress = false;
   //}
   createClouds();
-  //createLightning();
   axies();
+  //createLightning();
   if(startX>=135 && startX<=260 && startY>500){
    createBrokenHouse();
   }
