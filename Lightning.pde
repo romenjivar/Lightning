@@ -58,7 +58,8 @@ void createLightning(){
     rect(-7,-7,615,615);
     
     if(startY>605){
-     mousePressed(); 
+     mPress = false; 
+     //mousePressed(); 
     }
 }
 
