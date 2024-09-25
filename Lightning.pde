@@ -70,7 +70,7 @@ void createLightning(){
 
 void createClouds(){
   noStroke();
-  fill(200,200,200);
+  fill(125,125,125);
  ellipse(0,50,300,160); 
  ellipse(190,50,250,125);
  ellipse(350,50,225,150);
