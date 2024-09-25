@@ -1,33 +1,88 @@
-int startX = 0;
-int startY = 150;
-int endX = 0;
-int endY = 150;
+int startX = (int)(Math.random()*600);
+int startY = 95;
+int endX = (int)(Math.random()*600);
+int endY = 95;
 
 void setup(){
-size(300,300);
+size(600,600);
 strokeWeight(3);
 background(0);
 }
 
 void draw(){
+ 
+  
+  createClouds();
+  createLightning();
+  axies();
+  if(startX>=135 && startX<=260 && startY>500){
+   createBrokenHouse();
+  }
+  else{
+   createHouse(); 
+  }
+  
+}
+
+void axies(){
+  noStroke();
+ line(mouseX, mouseY, mouseX, mouseY);
+fill(255,255,255);
+text(mouseX + ", "+mouseY,20,20); 
+}
+void mousePressed()
+{
+  startX = (int)(Math.random()*600);
+  startY = 95;
+  endX = (int)(Math.random()*600);
+  endY = 95;
+}
+
+void createLightning(){
   stroke(227,217,23);
-  
-  
-    endX = startX + (int)(Math.random()*10);
-    endY = startY + (int)(Math.random()*19)-9;
+  strokeWeight(10);
+    endY = startY + (int)(Math.random()*30);
+    endX = startX + (int)(Math.random()*31)-15;
     line(startX,startY,endX,endY);
     startX = endX;
     startY = endY;
     fill(0,0,0,15);
-    rect(0,0,300,300);
- 
+    rect(-7,-7,615,615);
+    
+    if(startY>605){
+     mousePressed(); 
+    }
 }
 
-void mousePressed()
-{
-  startX = 0;
-  startY = 150;
-  endX = 0;
-  endY = 150;
+void createClouds(){
+  noStroke();
+  fill(200,200,200);
+ ellipse(0,50,300,160); 
+ ellipse(190,50,250,125);
+ ellipse(350,50,225,150);
+ ellipse(550,50,325,170);
 }
 
+void createHouse(){
+  noStroke();
+ fill(255,0,0);
+ rect(135,500,125,100);
+ fill(65,45,0);
+ rect(145,550,30,50);
+ fill(70,200,200);
+ rect(200,520,50,50);
+}
+
+void createBrokenHouse(){
+  noStroke();
+  fill(65,45,0);
+  rect(180,550,30,50);
+  fill(255,0,0);
+  triangle(75,600,100,560,130,600);
+  triangle(110,600,140,570,170,600);
+  triangle(130,600,170,550,200,600);
+  triangle(190,600,220,560,250,600);
+  triangle(230,600,260,550,300,600);
+  
+  
+}
