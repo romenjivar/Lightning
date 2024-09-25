@@ -11,14 +11,14 @@ background(0);
 }
 
 void draw(){
- 
+ background(0);
    
-  if(mPress == true){
+ // if(mPress == true){
     createLightning();
-  }
-  else{
-   mPress = false;
-  }
+ // }
+ // else{
+  // mPress = false;
+  //}
   createClouds();
   //createLightning();
   axies();
@@ -28,6 +28,7 @@ void draw(){
   else{
    createHouse(); 
   }
+  noLoop();
   
 }
 
@@ -39,16 +40,18 @@ text(mouseX + ", "+mouseY,20,20);
 }
 void mousePressed()
 {
-  mPress = true;
+  //mPress = true;
   startX = (int)(Math.random()*600);
   startY = 95;
   endX = (int)(Math.random()*600);
   endY = 95;
+  redraw();
 }
 
 void createLightning(){
   stroke(227,217,23);
   strokeWeight(10);
+  while(endY<600){
     endY = startY + (int)(Math.random()*30);
     endX = startX + (int)(Math.random()*31)-15;
     line(startX,startY,endX,endY);
@@ -56,11 +59,12 @@ void createLightning(){
     startY = endY;
     fill(0,0,0,15);
     rect(-7,-7,615,615);
+  }
     
-    if(startY>605){
-     mPress = false; 
+    //if(startY>605){
+     //mPress = false; 
      //mousePressed(); 
-    }
+    //}
 }
 
 void createClouds(){
