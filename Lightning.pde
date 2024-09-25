@@ -2,6 +2,7 @@ int startX = (int)(Math.random()*600);
 int startY = 95;
 int endX = (int)(Math.random()*600);
 int endY = 95;
+boolean mPress = false;
 
 void setup(){
 size(600,600);
@@ -11,13 +12,18 @@ background(0);
 
 void draw(){
  
-  
+   
+  if(mPress == true){
+    createLightning();
+  }
+  else{
+   mPress = false;
+  }
   createClouds();
-  createLightning();
+  //createLightning();
   axies();
   if(startX>=135 && startX<=260 && startY>500){
    createBrokenHouse();
-   mousePressed();
   }
   else{
    createHouse(); 
@@ -33,6 +39,7 @@ text(mouseX + ", "+mouseY,20,20);
 }
 void mousePressed()
 {
+  mPress = true;
   startX = (int)(Math.random()*600);
   startY = 95;
   endX = (int)(Math.random()*600);
