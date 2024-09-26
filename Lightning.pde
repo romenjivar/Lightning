@@ -10,50 +10,35 @@ strokeWeight(3);
 background(0);
 }
 
-void draw(){
-//background(0);
-
-   
- // if(mPress == true){
-    createLightning();
- // }
- // else{
-  // mPress = false;
-  //}
+void draw(){ 
+  background(0);
+  createLightning();
   createClouds();
-  axies();
-  //createLightning();
   if(startX>=135 && startX<=260 && startY>500){
-    drawHouse = false;
+    startX = 200;
+    startY = 610;
    createBrokenHouse();
   }
   else{
    createHouse(); 
   }
-  //noLoop();
+  noLoop();
   
 }
 
-void axies(){
-  noStroke();
- line(mouseX, mouseY, mouseX, mouseY);
-fill(255,255,255);
-text(mouseX + ", "+mouseY,20,20); 
-}
 void mousePressed()
 {
-  //mPress = true;
   startX = (int)(Math.random()*600);
   startY = 95;
   endX = (int)(Math.random()*600);
   endY = 95;
-  //redraw();
+  redraw();
 }
 
 void createLightning(){
   stroke(227,217,23);
   strokeWeight(10);
-  //while(endY<600){
+  while(endY<600){
     endY = startY + (int)(Math.random()*30);
     endX = startX + (int)(Math.random()*31)-15;
     line(startX,startY,endX,endY);
@@ -61,12 +46,10 @@ void createLightning(){
     startY = endY;
     fill(0,0,0,15);
     rect(-7,-7,615,615);
- // }
+  }
     
-    if(startY>605){
-      startY=605;
-     //mPress = false; 
-     //mousePressed(); 
+    if(startY>600){
+      startY=610;
     }
 }
 
